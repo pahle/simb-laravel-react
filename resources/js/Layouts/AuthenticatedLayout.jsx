@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ApplicationLogo from "@/Components/ApplicationLogo";
-import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/inertia-react";
@@ -12,7 +11,7 @@ export default function Authenticated({ auth, header, children }) {
     return (
         <div className="min-h-screen bg-gray-100">
             <nav className="bg-white border-b border-gray-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex justify-between w-full">
                             <div className="shrink-0 flex items-center">
@@ -56,7 +55,7 @@ export default function Authenticated({ auth, header, children }) {
                                         }
                                         as="button"
                                     >
-                                        {auth.user ? "Log Out" : "Log In"}
+                                        {auth.user ? "LOG OUT" : "LOG IN"}
                                     </Link>
                                 </NavLink>
                             </div>
@@ -129,7 +128,7 @@ export default function Authenticated({ auth, header, children }) {
                                 }
                                 as="button"
                             >
-                                {auth.user ? "Log Out" : "Log In"}
+                                {auth.user ? "LOG OUT" : "LOG IN"}
                             </ResponsiveNavLink>
                         </div>
                     </div>
@@ -139,21 +138,17 @@ export default function Authenticated({ auth, header, children }) {
             {header && (
                 <section
                 id="beranda"
-                className="flex md:flex-row flex-col sm:py-16 bg-gradient-to-r from-[#030F6B] to-[#23284F] h-[420px] md:h-[365px] text-center text-sm px-5 sm:p-0"
+                className="flex md:flex-row flex-col sm:py-16 bg-gradient-to-r from-[#030F6B] to-[#23284F] h-[420px] md:h-[366px] text-center text-sm px-5 sm:p-0"
               >
                 <div
                   className="flex-1 flex justify-center items-start flex-col xl:px-0 sm:px-16 px-6"
                     >
                   <div className="flex flex-row justify-between items-center w-full text-center">
-                    <h1 className="flex-1 font-poppins font-semibold text-white ss:text-[72px] xs:text-[52px] text-[48px] ss:leading-[100px] leading-[75px] w-[100%]">
+                    <h1 className="flex-1 mt-[-88px] font-poppins font-semibold text-white ss:text-[72px] xs:text-[52px] text-[48px] ss:leading-[100px] leading-[75px] w-[100%]">
                       {header}
                     </h1>
                   </div>
                 </div>
-            
-                {/* <div className="absolute z-[0] w-[40%] h-[35%] top-40 blue__gradient" />
-                  <div className="absolute z-[1] w-[80%] h-[80%] rounded-full bottom-40 white__gradient" />
-                  <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 yellow__gradient" /> */}
               </section>
             )}
 

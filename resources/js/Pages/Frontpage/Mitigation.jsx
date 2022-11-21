@@ -7,7 +7,7 @@ export default function Mitigation(props) {
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Mitigasi</h2>}
+            header="Mitigasi"
         >
             <Head title="Mitigasi" />
 
