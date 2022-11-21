@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { AmbilDataGempa } from "../../API/fetchAPI";
 import { getGempaTerkini, getGempaList, getGempaTerasa } from "../../API/API";
 import { Head } from "@inertiajs/inertia-react";
-import {
-    CTable,
-    CTableHead,
-    CTableRow,
-    CTableHeaderCell,
-    CTableBody,
-    CTableDataCell,
-} from "@coreui/react";
 import { CChart } from "@coreui/react-chartjs";
 
 export default function Statistics(props) {
