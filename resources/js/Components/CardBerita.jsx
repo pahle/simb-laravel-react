@@ -1,11 +1,11 @@
 import React from "react";
 import '@coreui/coreui/dist/css/coreui.min.css';
-import { CCard, CCardImage, CCardBody, CCardText, CCardTitle, CCol, CRow, CCardFooter } from '@coreui/react';
+import { CCardImage, CCol, CRow } from '@coreui/react';
 import Button from "./Button";
 
 const CardBerita = (props) => {
     return (
-        <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="mb-5">
+        <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="mb-5 max-w-full">
             <CCol xs>
                 <div className="border rounded-md hover:bg-gradient-to-tl hover:from-gray-200 hover:to-white h-full flex flex-column overflow-hidden">
                     <div className="h-40 overflow-hidden">
@@ -18,7 +18,7 @@ const CardBerita = (props) => {
                         <p className="pb-2">Tsunami adalah gelombang air besar yang diakibatkan oleh gangguan di dasar laut, seperti gempa bumi.</p>
                         <footer className="text-slate-400 text-sm pb-3 font-light">Published 02 November 2022</footer>
                         <div className="text-center flex-auto flex justify-content-center align-items-end">
-                            <a href="//id.wikipedia.org/wiki/Tsunami" className="hover:text-white"><Button Button="Read more" /></a>
+                            <a href="//id.wikipedia.org/wiki/Tsunami" className="hover:text-white no-underline"><Button Button="Read more" /></a>
                         </div>
                     </div>
                 </div>
@@ -33,12 +33,12 @@ const CardBerita = (props) => {
                         <p className="pb-2">Tsunami adalah gelombang air besar yang diakibatkan oleh gangguan di dasar laut, seperti gempa bumi.</p>
                         <footer className="text-slate-400 text-sm pb-3 font-light">Published 02 November 2022</footer>
                         <div className="text-center flex-auto flex justify-content-center align-items-end">
-                            <a href="//id.wikipedia.org/wiki/Tsunami" className="hover:text-white"><Button Button="Read more" /></a>
+                            <a href="//id.wikipedia.org/wiki/Tsunami" className="hover:text-white no-underline"><Button Button="Read more" /></a>
                         </div>
                     </div>
                 </div>
             </CCol>
-            
+
         </CRow>
     );
 }
