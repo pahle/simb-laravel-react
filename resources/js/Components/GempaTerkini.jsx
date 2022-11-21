@@ -32,9 +32,9 @@ const GempaTerkini = () => {
                     <div>
                         <p className="font-semibold text-lg">Wilayah</p>
                         <p className="pb-3">{data.Wilayah}</p>
-                        <p className="font-semibold text-lg">Waktu</p>
+                        <p className="font-semibold text-lg">Tanggal</p>
                         <p className="pb-3">
-                            {data.Jam} {data.Tanggal}
+                        {data.Tanggal} {data.Jam} 
                         </p>
                         <p className="font-semibold text-lg">Magnitude</p>
                         <p className="pb-3">{data.Magnitude}</p>
