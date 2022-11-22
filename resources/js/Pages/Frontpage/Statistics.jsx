@@ -14,10 +14,7 @@ export default function Statistics(props) {
     let tanggal = data.map((data) => data.Tanggal).reverse();
     let magnitude = data.map((data) => data.Magnitude).reverse();
     let potensi = data.map((data) => data.Potensi);
-    let kedalaman = data.map((data) => parseInt(data.Kedalaman)).reverse();
-    let wilayah = data
-        .map((data) => data.Wilayah.split(" ").splice(-2).join(" "))
-        .reverse();
+
 
     let pot = 0;
     let tpot = 0;
@@ -38,7 +35,7 @@ export default function Statistics(props) {
         >
             <Head title="Statistik" />
 
-            <div className="py-12 mt-[-134px]">
+            <div className="py-12">
                 <div className="max-w-[1440px] mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900 text-left">
@@ -63,9 +60,9 @@ export default function Statistics(props) {
                             />
                         </div>
                     </div>
-                    <div className="flex xl:flex-row flex-col mt-4 gap-4">
+                    <div className="flex xl:flex-row flex-col mt-4 gap-4 xl:max-h-[400px]">
                         <div className=" bg-white overflow-hidden shadow-sm sm:rounded-lg xl:w-1/3 w-full">
-                            <div className="p-6 text-gray-900 w-full xl:mb-0">
+                            <div className="p-6 text-gray-900 w-full xl:mb-0 max-w-[400px]">
                                 <CChart
                                     type="doughnut"
                                     data={{

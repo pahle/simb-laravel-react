@@ -144,7 +144,7 @@ export default function Authenticated({ auth, header, children }) {
                   className="flex-1 flex justify-center items-start flex-col xl:px-0 sm:px-16 px-6"
                     >
                   <div className="flex flex-row justify-between items-center w-full text-center">
-                    <h1 className="flex-1 mt-[-88px] font-poppins font-semibold text-white ss:text-[72px] xs:text-[52px] text-[48px] ss:leading-[100px] leading-[75px] w-[100%]">
+                    <h1 className="flex-1 font-poppins font-semibold text-white ss:text-[72px] xs:text-[52px] text-[48px] ss:leading-[100px] leading-[75px] w-[100%]">
                       {header}
                     </h1>
                   </div>

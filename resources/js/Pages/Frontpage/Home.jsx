@@ -14,7 +14,7 @@ export default function Home(props) {
         <AuthenticatedLayout auth={props.auth} errors={props.errors} header="">
             <Head title="Home" />
 
-            <GempaTerkini />
+            <GempaTerkini className="h-[90vh]"/>
 
             <div className="py-12">
                 <div className="max-w-[1440px] mx-auto sm:px-6 lg:px-8">
