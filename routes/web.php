@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -42,6 +43,12 @@ Route::get('/report', function () {
 Route::get('/statistics', function () {
     return Inertia::render('Frontpage/Statistics');
 })->name('statistics');
+
+Route::prefix('mitigasi')->group(function() {
+    Route::get('/tsunami', function() {
+        return Inertia::render('Frontpage/MitigasiTsunami');
+    })->name('mitigasi/tsunami');
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
