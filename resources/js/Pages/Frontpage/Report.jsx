@@ -16,6 +16,7 @@ export default function Report(props) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 flex justify-center">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg w-3/4">
+                        <div></div>
 
                         <div className='p-4'>
                             <CFormLabel htmlFor="basic-url" className='text-lg font-semibold'>Identitas Pelapor</CFormLabel>
