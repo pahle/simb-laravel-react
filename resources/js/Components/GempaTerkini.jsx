@@ -17,13 +17,10 @@ const GempaTerkini = () => {
 
     let long = parseFloat(data.Coordinates?.split(",").pop());
 
-
-    console.log(lat,long);
-
     return (
         <>
             <div className="w-full h-screen bg-gradient-to-l from-white via-white/70 to-transparent absolute flex items-center justify-end z-[1]">
-                <div className="flex justify-center basis-1/2 flex-col p-28 text-right mr-4">
+                <div className="flex justify-center xl:basis-1/2   flex-col xl:p-28 p-14 text-right mr-4">
                     <div className="w-full pb-4">
                         <div className="text-right text-5xl font-semibold py-3">
                             GEMPA TERKINI

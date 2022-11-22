@@ -28,6 +28,7 @@
         "@emotion/react": "^11.10.5",
         "@emotion/styled": "^11.10.5",
         "@mui/material": "^5.10.14",
+        "framer-motion": "^7.6.7",
         "leaflet": "^1.9.3",
         "react-leaflet": "^4.1.0"
     }
