@@ -32,7 +32,11 @@ export default function Mitigation(props) {
                             </div>
                         </div>
                         <div className="flex relative">
-                            <p className="basis-2/3 pr-10 leading-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, vero delectus? Consequuntur mollitia amet dolorum omnis reiciendis molestiae doloribus tempore odio ab ad quibusdam pariatur nulla voluptatum, sit quam veniam nostrum commodi aperiam ex eaque. Blanditiis eligendi aperiam dolorem minima enim libero eos reiciendis, harum officia, pariatur eius saepe soluta illum aspernatur distinctio hic, possimus corrupti nesciunt quidem? Corporis quod velit ex ratione iusto exercitationem, dolores rem quisquam laudantium! Dolor, amet magni quaerat eveniet reprehenderit velit facere eum qui nostrum asperiores doloremque doloribus. Corrupti autem rerum, dolore explicabo accusantium nulla esse, possimus, ullam temporibus nam et vel velit quas vitae.</p>
+                            <div className='basis-2/3 pr-10 '>
+                                <p className="leading-8">Bencana adalah peristiwa atau rangkaian peristiwa yang mengancam dan mengganggu kehidupan dan penghidupan masyarakat yang disebabkan, baik oleh faktor alam dan/atau faktor nonalam maupun faktor manusia sehingga mengakibatkan timbulnya korban jiwa manusia, kerusakan lingkungan, kerugian harta benda, dan dampak psikologis. Definisi tersebut menyebutkan bahwa bencana disebabkan oleh faktor alam, non alam, dan manusia. Oleh karena itu, Undang-Undang Nomor 24 Tahun 2007 tersebut juga mendefinisikan mengenai bencana alam, bencana nonalam, dan bencana sosial.</p>
+                                <p className='leading-8'>Bencana nonalam adalah bencana yang diakibatkan oleh peristiwa atau rangkaian peristiwa nonalam yang antara lain berupa gagal teknologi, gagal modernisasi, epidemi, dan wabah penyakit.</p>
+                                <p className='leading-8'>Bencana alam adalah bencana yang diakibatkan oleh peristiwa atau serangkaian peristiwa yang disebabkan oleh alam antara lain berupa gempa bumi, tsunami, gunung meletus, banjir, kekeringan, angin topan, dan tanah longsor.</p>
+                            </div>
                             <div className="basis-1/3">
                                 <CarouselMitigasi />
                             </div>
@@ -64,7 +68,7 @@ export default function Mitigation(props) {
 
                             <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 3 }}>
                                 <CCol xs>
-                                    <div className="flex flex-column border rounded-md p-3 hover:bg-gradient-to-tl hover:from-gray-200 hover:to-white-500">
+                                    <div className="flex flex-column border rounded-md p-3 hover:bg-gradient-to-tl hover:from-gray-200 hover:to-white-500 h-full">
                                         <header>
                                             <h2 className="text-lg font-semibold pb-2">Legislasi</h2>
                                         </header>
@@ -73,7 +77,7 @@ export default function Mitigation(props) {
                                     </div>
                                 </CCol>
                                 <CCol xs>
-                                    <div className="flex flex-column border rounded-md p-3 hover:bg-gradient-to-tl hover:from-gray-200 hover:to-white-500">
+                                    <div className="flex flex-column border rounded-md p-3 hover:bg-gradient-to-tl hover:from-gray-200 hover:to-white-500 h-full">
                                         <header>
                                             <h2 className="text-lg font-semibold pb-2">Kelembagaan</h2>
                                         </header>
@@ -82,7 +86,7 @@ export default function Mitigation(props) {
                                     </div>
                                 </CCol>
                                 <CCol xs>
-                                    <div className="flex flex-column border rounded-md p-3 hover:bg-gradient-to-tl hover:from-gray-200 hover:to-white-500">
+                                    <div className="flex flex-column border rounded-md p-3 hover:bg-gradient-to-tl hover:from-gray-200 hover:to-white-500 h-full">
                                         <header>
                                             <h2 className="text-lg font-semibold pb-2">Pendanaan</h2>
                                         </header>
