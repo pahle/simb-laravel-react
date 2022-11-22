@@ -3,6 +3,7 @@ import ApplicationLogo from "@/Components/ApplicationLogo";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/inertia-react";
+import { motion } from "framer-motion";
 
 export default function Authenticated({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
@@ -135,24 +136,29 @@ export default function Authenticated({ auth, header, children }) {
                 </div>
             </nav>
 
-            {header && (
-                <section
-                id="beranda"
-                className="flex md:flex-row flex-col sm:py-16 bg-gradient-to-r from-[#030F6B] to-[#23284F] h-[420px] md:h-[366px] text-center text-sm px-5 sm:p-0"
-              >
-                <div
-                  className="flex-1 flex justify-center items-start flex-col xl:px-0 sm:px-16 px-6"
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 2 }}
+            >
+                {header && (
+                    <section
+                        id="beranda"
+                        className="flex md:flex-row flex-col sm:py-16 bg-gradient-to-r from-[#030F6B] to-[#23284F] h-[420px] md:h-[366px] text-center text-sm px-5 sm:p-0"
                     >
-                  <div className="flex flex-row justify-between items-center w-full text-center">
-                    <h1 className="flex-1 font-poppins font-semibold text-white ss:text-[72px] xs:text-[52px] text-[48px] ss:leading-[100px] leading-[75px] w-[100%]">
-                      {header}
-                    </h1>
-                  </div>
-                </div>
-              </section>
-            )}
+                        <div className="flex-1 flex justify-center items-start flex-col xl:px-0 sm:px-16 px-6">
+                            <div className="flex flex-row justify-between items-center w-full text-center">
+                                <h1 className="flex-1 font-poppins font-semibold text-white ss:text-[72px] xs:text-[52px] text-[48px] ss:leading-[100px] leading-[75px] w-[100%]">
+                                    {header}
+                                </h1>
+                            </div>
+                        </div>
+                    </section>
+                )}
 
-            <main>{children}</main>
+                <main>{children}</main>
+            </motion.div>
         </div>
     );
 }
