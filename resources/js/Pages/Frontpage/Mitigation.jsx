@@ -16,11 +16,10 @@ export default function Mitigation(props) {
         >
             <Head title="Mitigasi" />
 
-            <div className="w-full overflow-hidden mt-10">
                 <div
-                    className='bg-white sm:px-16 px-6 flex justify-center items-start'
-                >
-                    <div className='xl:max-w-[1280px] w-full'>
+                    className='py-12'
+                    >
+                    <div className='max-w-[1440px] mx-auto sm:px-6 lg:px-8'>
                         <div>
                             <TitleSection title="Pengetahuan Kebencanaan" />
                         </div>
@@ -98,7 +97,6 @@ export default function Mitigation(props) {
                         </div>
                     </div>
                 </div>
-            </div>
         </AuthenticatedLayout>
     );
 }
