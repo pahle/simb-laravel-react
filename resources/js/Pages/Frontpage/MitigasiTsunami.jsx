@@ -18,25 +18,25 @@ export default function MitigasiTsunami(props) {
             <div className='mb-3'>
                 <CCarousel indicators>
                     <CCarouselItem>
-                        <div className='w-100 h-[500px] overflow-hidden'>
-                            <CImage className="d-block w-100 mt-[-250px]" src="/assets/images/CarouselTsunami/Bock-Clark-Sulawesi.webp" alt="slide 1" />
+                        <div className='w-full h-[500px] overflow-hidden'>
+                            <CImage className="d-block w-full mt-[-250px]" src="/assets/images/CarouselTsunami/Bock-Clark-Sulawesi.webp" alt="slide 1" />
                         </div>
                     </CCarouselItem>
                     <CCarouselItem>
-                        <div className='w-100 h-[500px] overflow-hidden'>
-                            <CImage className="d-block w-100 mt-[-350px]" src="/assets/images/CarouselTsunami/tsunami-terbesar-yang-terjadi-di.original.jpegquality-90.jpg" alt="slide 2" />
+                        <div className='w-full h-[500px] overflow-hidden'>
+                            <CImage className="d-block w-full mt-[-350px]" src="/assets/images/CarouselTsunami/tsunami-terbesar-yang-terjadi-di.original.jpegquality-90.jpg" alt="slide 2" />
                         </div>
                     </CCarouselItem>
                     <CCarouselItem>
-                        <div className='w-100 h-[500px] overflow-hidden'>
-                            <CImage className="d-block w-100 mt-[-350px]" src="/assets/images/CarouselTsunami/202103181357-main.cropped_1617196916.jpg" alt="slide 3" />
+                        <div className='w-full h-[500px] overflow-hidden'>
+                            <CImage className="d-block w-full mt-[-350px]" src="/assets/images/CarouselTsunami/202103181357-main.cropped_1617196916.jpg" alt="slide 3" />
                         </div>
                     </CCarouselItem>
                 </CCarousel>
             </div>
 
             <div className='container-lg'>
-                <div className='rounded-md overflow-hidden w-2/3 m-auto'>
+                <div className='rounded-md overflow-hidden w-[1440px] m-auto'>
                     <img src="/assets/images/2022_09_20_09_02_44.520721_file.jpeg" alt="mitigasi bencana tsunami" />
                 </div>
                 <div className="w-full my-3">
