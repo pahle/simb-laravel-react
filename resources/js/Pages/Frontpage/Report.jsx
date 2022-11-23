@@ -5,10 +5,12 @@ import "@coreui/coreui/dist/css/coreui.min.css";
 import {
     CFormLabel,
     CFormInput,
-    CCol,
-    CRow,
+    CFormCheck,
     CFormTextarea,
 } from "@coreui/react";
+import InputError from "@/Components/InputError";
+import InputLabel from "@/Components/InputLabel";
+import TextInput from "@/Components/TextInput";
 
 export default function Report(props) {
     return (
@@ -21,157 +23,240 @@ export default function Report(props) {
 
             <div className="py-12">
                 <div className="max-w-[1440px] mx-auto sm:px-6 lg:px-8 flex justify-center">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg w-full">
-                        <form action="" className="p-5">
-                                <div className="relative z-0 mb-6 w-full group">
-                                    <input
-                                        type="email"
-                                        name="floating_email"
-                                        id="floating_email"
-                                        className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                        placeholder=" "
-                                        required
-                                    />
-                                    <label
-                                        for="floating_email"
-                                        className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                                    >
-                                        Email address
-                                    </label>
-                                </div>
-                                <div className="relative z-0 mb-6 w-full group">
-                                    <input
-                                        type="password"
-                                        name="floating_password"
-                                        id="floating_password"
-                                        className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                        placeholder=" "
-                                        required
-                                    />
-                                    <label
-                                        for="floating_password"
-                                        className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                                    >
-                                        Password
-                                    </label>
-                                </div>
-                                <div className="relative z-0 mb-6 w-full group">
-                                    <input
-                                        type="password"
-                                        name="repeat_password"
-                                        id="floating_repeat_password"
-                                        className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                        placeholder=" "
-                                        required
-                                    />
-                                    <label
-                                        for="floating_repeat_password"
-                                        className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                                    >
-                                        Confirm password
-                                    </label>
-                                </div>
-                                <div className="grid md:grid-cols-2 md:gap-6">
-                                    <div className="relative z-0 mb-6 w-full group">
-                                        <input
-                                            type="text"
-                                            name="floating_first_name"
-                                            id="floating_first_name"
-                                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                            placeholder=" "
-                                            required
-                                        />
-                                        <label
-                                            for="floating_first_name"
-                                            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                                        >
-                                            First name
-                                        </label>
-                                    </div>
-                                </div>
+                    <div className="bg-white hover:bg-gradient-to-tl hover:from-gray-100 hover:to-white overflow-hidden shadow-sm sm:rounded-lg w-full lg:px-[400px] md:px-10 sm:px-0">
+                        <div className="p-4">
+                            <CFormLabel
+                                htmlFor="basic-url"
+                                className="text-lg font-semibold"
+                            >
+                                Identitas Pelapor
+                            </CFormLabel>
+                            <div className="mt-2">
+                                <InputLabel forInput="nama" value="Nama" />
 
-                            <h1 className="text-center">Guncangan</h1>
-                            <fieldset className="flex flex-row gap-4 justify-between mt-5">
-                                <legend className="sr-only">Countries</legend>
+                                <TextInput
+                                    type="text"
+                                    name="nama"
+                                    value=""
+                                    className="mt-1 block w-full"
+                                    autoComplete="nama"
+                                />
 
-                                <div className="flex items-center mb-4 ">
-                                    <input
-                                        id="option-1"
-                                        type="radio"
-                                        name="countries"
-                                        value="USA"
-                                        className="w-10 h-10 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
-                                    />
-                                    <label
-                                        for="option-1"
-                                        className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                    >
-                                        1
-                                    </label>
-                                </div>
+                                <InputError message="" className="mt-2" />
+                            </div>
+                            <div className="mt-2 mb-4">
+                                <InputLabel forInput="nik" value="NIK" />
 
-                                <div className="flex items-center mb-4">
-                                    <input
-                                        id="option-2"
+                                <TextInput
+                                    type="text"
+                                    name="nik"
+                                    value=""
+                                    className="mt-1 block w-full"
+                                    autoComplete="nik"
+                                />
+
+                                <InputError message="" className="mt-2" />
+                            </div>
+                            <CFormLabel
+                                htmlFor="basic-url"
+                                className="text-lg font-semibold"
+                            >
+                                Kronologi Gempa
+                            </CFormLabel>
+                            <div className="mt-2">
+                                <InputLabel forInput="lokasi" value="Lokasi" />
+
+                                <TextInput
+                                    type="text"
+                                    name="lokasi"
+                                    value=""
+                                    className="mt-1 block w-full"
+                                    autoComplete="lokasi"
+                                />
+
+                                <InputError message="" className="mt-2" />
+                            </div>
+                            <div className="mt-2">
+                                <InputLabel forInput="waktu" value="Waktu" />
+
+                                <TextInput
+                                    type="text"
+                                    name="waktu"
+                                    value=""
+                                    className="mt-1 block w-full"
+                                    autoComplete="waktu"
+                                />
+
+                                <InputError message="" className="mt-2" />
+                            </div>
+                            <div className="mt-2">
+                                <InputLabel forInput="korban" value="Korban" />
+
+                                <TextInput
+                                    type="text"
+                                    name="korban"
+                                    value=""
+                                    className="mt-1 block w-full"
+                                    autoComplete="korban"
+                                />
+
+                                <InputError message="" className="mt-2" />
+                            </div>
+                            <div className="mt-2">
+                                <InputLabel forInput="durasi" value="Durasi" />
+
+                                <TextInput
+                                    type="text"
+                                    name="durasi"
+                                    value=""
+                                    className="mt-1 block w-full"
+                                    autoComplete="durasi"
+                                />
+
+                                <InputError message="" className="mt-2" />
+                            </div>
+                            <div className="flex mt-2 flex-column">
+                                <CFormLabel
+                                    htmlFor="basic-url"
+                                    className="text-sm font-medium"
+                                >
+                                    Guncangan
+                                </CFormLabel>
+                                <div className="flex-auto text-center">
+                                    <CFormCheck
+                                        inline
                                         type="radio"
-                                        name="countries"
-                                        value="Germany"
-                                        className="w-10 h-10 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                                        name="inlineRadioOptions"
+                                        id="inlineCheckbox1"
+                                        value="option1"
+                                        label="1"
                                     />
-                                    <label
-                                        for="option-2"
-                                        className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                    >
-                                        2
-                                    </label>
-                                </div>
-                                <div className="flex items-center mb-4">
-                                    <input
-                                        id="option-3"
+                                    <CFormCheck
+                                        inline
                                         type="radio"
-                                        name="countries"
-                                        value="Germany"
-                                        className="w-10 h-10 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                                        name="inlineRadioOptions"
+                                        id="inlineCheckbox2"
+                                        value="option2"
+                                        label="2"
                                     />
-                                    <label
-                                        for="option-3"
-                                        className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                    >
-                                        3
-                                    </label>
-                                </div>
-                                <div className="flex items-center mb-4">
-                                    <input
-                                        id="option-4"
+                                    <CFormCheck
+                                        inline
                                         type="radio"
-                                        name="countries"
-                                        value="Germany"
-                                        className="w-10 h-10 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                                        name="inlineRadioOptions"
+                                        id="inlineCheckbox3"
+                                        value="option3"
+                                        label="3"
                                     />
-                                    <label
-                                        for="option-4"
-                                        className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                    >
-                                        4
-                                    </label>
-                                </div>
-                                <div className="flex items-center mb-4">
-                                    <input
-                                        id="option-5"
+                                    <CFormCheck
+                                        inline
                                         type="radio"
-                                        name="countries"
-                                        value="Germany"
-                                        className="w-10 h-10 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                                        name="inlineRadioOptions"
+                                        id="inlineCheckbox4"
+                                        value="option4"
+                                        label="4"
                                     />
-                                    <label
-                                        for="option-5"
-                                        className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                    >
-                                        5
-                                    </label>
+                                    <CFormCheck
+                                        inline
+                                        type="radio"
+                                        name="inlineRadioOptions"
+                                        id="inlineCheckbox5"
+                                        value="option5"
+                                        label="5"
+                                    />
                                 </div>
-                            </fieldset>
-                        </form>
+                            </div>
+                            <div className="flex mt-2 flex-column">
+                                <CFormLabel
+                                    htmlFor="basic-url"
+                                    className="text-sm font-medium block"
+                                >
+                                    Deskripsi
+                                </CFormLabel>
+                                <CFormTextarea
+                                    placeholder="Leave a comment here"
+                                    id="floatingTextarea2"
+                                    floatingLabel="kronologis kejadian"
+                                    style={{ height: "100px" }}
+                                ></CFormTextarea>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center mb-4 ">
+                            <input
+                                id="option-1"
+                                type="radio"
+                                name="countries"
+                                value="USA"
+                                className="w-10 h-10 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                                for="option-1"
+                                className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                                1
+                            </label>
+                        </div>
+
+                        <div className="flex items-center mb-4">
+                            <input
+                                id="option-2"
+                                type="radio"
+                                name="countries"
+                                value="Germany"
+                                className="w-10 h-10 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                                for="option-2"
+                                className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                                2
+                            </label>
+                        </div>
+                        <div className="flex items-center mb-4">
+                            <input
+                                id="option-3"
+                                type="radio"
+                                name="countries"
+                                value="Germany"
+                                className="w-10 h-10 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                                for="option-3"
+                                className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                                3
+                            </label>
+                        </div>
+                        <div className="flex items-center mb-4">
+                            <input
+                                id="option-4"
+                                type="radio"
+                                name="countries"
+                                value="Germany"
+                                className="w-10 h-10 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                                for="option-4"
+                                className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                                4
+                            </label>
+                        </div>
+                        <div className="flex items-center mb-4">
+                            <input
+                                id="option-5"
+                                type="radio"
+                                name="countries"
+                                value="Germany"
+                                className="w-10 h-10 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                                for="option-5"
+                                className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                                5
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { getGempaTerasa } from "../../API/API";
 import { Head } from "@inertiajs/inertia-react";
+import { getGempaTerasa } from "../../API/API";
 import { CChart } from "@coreui/react-chartjs";
 import { AnimatePresence, motion } from "framer-motion";
 
