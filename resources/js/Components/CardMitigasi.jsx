@@ -1,6 +1,6 @@
 import React from "react";
 import '@coreui/coreui/dist/css/coreui.min.css';
-import { CCard, CCardImage, CCardBody, CCardText, CCardTitle, CCol, CRow, CCardFooter } from '@coreui/react';
+import { CCol, CRow, CCardFooter } from '@coreui/react';
 import Button from "./Button";
 
 const CardComponent = (props) => {

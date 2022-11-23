@@ -35,9 +35,14 @@ Route::get('/mitigation', function () {
     return Inertia::render('Frontpage/Mitigation');
 })->name('mitigation');
 
-Route::get('/report', function () {
-    return Inertia::render('Frontpage/Report');
-})->name('report');
+Route::prefix('support')->group(function() {
+    Route::get('/report', function () {
+        return Inertia::render('Frontpage/Report');
+    })->name('report');
+    Route::get('/contact', function () {
+        return Inertia::render('Frontpage/ContactUs');
+    })->name('contact');
+});
 
 Route::get('/statistics', function () {
     return Inertia::render('Frontpage/Statistics');
