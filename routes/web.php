@@ -46,8 +46,12 @@ Route::get('/statistics', function () {
 Route::prefix('mitigasi')->group(function() {
     Route::get('/tsunami', function() {
         return Inertia::render('Frontpage/MitigasiTsunami');
-    })->name('mitigasi/tsunami');
+    })->name('tsunami');
 });
+
+Route::get('/news', function() {
+    return Inertia::render('Frontpage/CreateNews');
+})->name('news');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

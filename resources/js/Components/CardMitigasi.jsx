@@ -26,7 +26,7 @@ const CardComponent = (props) => {
                     <p className="pb-2">Tsunami adalah gelombang air besar yang diakibatkan oleh gangguan di dasar laut, seperti gempa bumi. Awalnya gelombang tersebut memiliki amplitudo kecil (umumnya 30-60 cm), tetapi amplitudonya membesar saat mendekati pantai.</p>
                     <footer className="text-slate-400 text-md pb-3">- Source <a href="//id.wikipedia.org/wiki/Tsunami" className="hover:text-sky-400 cursor-pointer italic no-underline text-inherit">id.wikipedia.org/wiki/Tsunami</a></footer>
                     <div className="text-center flex-auto flex justify-content-center align-items-end">
-                        <a href="/mitigasi/tsunami" className="hover:text-white no-underline"><Button Button="Read more" /></a>
+                        <a href={route('tsunami')} className="hover:text-white no-underline"><Button Button="Read more" /></a>
                     </div>
                 </div>
             </CCol>
