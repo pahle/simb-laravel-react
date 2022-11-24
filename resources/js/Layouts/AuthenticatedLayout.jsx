@@ -159,6 +159,14 @@ export default function Authenticated({ auth, header, children }) {
 
                 <main>{children}</main>
             </motion.div>
+
+            <footer className="bg-gradient-to-r from-[#030F6B] to-[#23284F] h-10 text-white text-center">
+                <div className="pt-2">
+                    <p>
+                        Copyright © 2022 - Kelompok 6 SIMB
+                    </p>
+                </div>
+            </footer>
         </div>
     );
 }

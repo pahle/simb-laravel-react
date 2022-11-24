@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import { Inertia } from "@inertiajs/inertia";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/inertia-react";
-import "@coreui/coreui/dist/css/coreui.min.css";
-import {
-    CFormLabel,
-    CFormInput,
-    CFormCheck,
-    CFormTextarea,
-} from "@coreui/react";
-import InputError from "@/Components/InputError";
-import InputLabel from "@/Components/InputLabel";
-import TextInput from "@/Components/TextInput";
 
 export default function Report(props) {
+    const [values, setValues] = useState({
+        nama: "",
+        nik: "",
+        lokasi: "",
+        tanggal: "",
+        waktu: "",
+        kerusakan: "",
+        korban: "",
+        deskripsi: "",
+    });
+
+    function handleChange(e) {
+        const key = e.target.id;
+        const value = e.target.value;
+        setValues((values) => ({
+            ...values,
+            [key]: value,
+        }));
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        Inertia.post("/report", values);
+    }
+
     return (
         <AuthenticatedLayout
             auth={props.auth}
@@ -22,165 +38,148 @@ export default function Report(props) {
             <Head title="Laporan" />
 
             <div className="py-12">
-                <div className="max-w-[1440px] mx-auto sm:px-6 lg:px-8 flex justify-center">
-                    <div className="bg-white hover:bg-gradient-to-tl hover:from-gray-100 hover:to-white overflow-hidden shadow-sm sm:rounded-lg w-full lg:px-[400px] md:px-10 sm:px-0">
-                        <div className="p-4">
-                            <CFormLabel
-                                htmlFor="basic-url"
-                                className="text-lg font-semibold"
-                            >
-                                Identitas Pelapor
-                            </CFormLabel>
-                            <div className="mt-2">
-                                <InputLabel forInput="nama" value="Nama" />
-
-                                <TextInput
+                <div className="max-w-[1440px] mx-auto sm:px-6 lg:px-8">
+                    <form onSubmit={handleSubmit}>
+                        <div className="flex flex-col justify-between form-control">
+                            <div className="w-2/3 mx-auto mt-4">
+                                <label className="label">
+                                    <span className="label-text font-semibold text-black">
+                                        Nama
+                                    </span>
+                                </label>
+                                <input
                                     type="text"
                                     name="nama"
-                                    value=""
-                                    className="mt-1 block w-full"
-                                    autoComplete="nama"
+                                    placeholder="Type here"
+                                    className="input input-bordered bg-white border-gray-500 w-full"
+                                    value={values.nama}
+                                    onChange={handleChange}
                                 />
-
-                                <InputError message="" className="mt-2" />
                             </div>
-                            <div className="mt-2 mb-4">
-                                <InputLabel forInput="nik" value="NIK" />
-
-                                <TextInput
+                            <div className="w-2/3 mx-auto mt-4">
+                                <label className="label">
+                                    <span className="label-text font-semibold text-black">
+                                        NIK
+                                    </span>
+                                </label>
+                                <input
                                     type="text"
-                                    name="nik"
-                                    value=""
-                                    className="mt-1 block w-full"
-                                    autoComplete="nik"
+                                    placeholder="Type here"
+                                    className="input input-bordered bg-white border-gray-500 w-full"
+                                    value={values.nik}
+                                    onChange={handleChange}
                                 />
-
-                                <InputError message="" className="mt-2" />
                             </div>
-                            <CFormLabel
-                                htmlFor="basic-url"
-                                className="text-lg font-semibold"
-                            >
-                                Kronologi Gempa
-                            </CFormLabel>
-                            <div className="mt-2">
-                                <InputLabel forInput="lokasi" value="Lokasi" />
-
-                                <TextInput
+                            <div className="divider mt-12"></div>
+                            <div className="w-2/3 mx-auto">
+                                <label className="label">
+                                    <span className="label-text font-semibold text-black">
+                                        Lokasi
+                                    </span>
+                                </label>
+                                <input
                                     type="text"
-                                    name="lokasi"
-                                    value=""
-                                    className="mt-1 block w-full"
-                                    autoComplete="lokasi"
+                                    placeholder="Type here"
+                                    className="input input-bordered bg-white border-gray-500 w-full"
+                                    onChange={handleChange}
                                 />
-
-                                <InputError message="" className="mt-2" />
                             </div>
-                            <div className="mt-2">
-                                <InputLabel forInput="waktu" value="Waktu" />
-
-                                <TextInput
-                                    type="text"
-                                    name="waktu"
-                                    value=""
-                                    className="mt-1 block w-full"
-                                    autoComplete="waktu"
-                                />
-
-                                <InputError message="" className="mt-2" />
-                            </div>
-                            <div className="mt-2">
-                                <InputLabel forInput="korban" value="Korban" />
-
-                                <TextInput
-                                    type="text"
-                                    name="korban"
-                                    value=""
-                                    className="mt-1 block w-full"
-                                    autoComplete="korban"
-                                />
-
-                                <InputError message="" className="mt-2" />
-                            </div>
-                            <div className="mt-2">
-                                <InputLabel forInput="durasi" value="Durasi" />
-
-                                <TextInput
-                                    type="text"
-                                    name="durasi"
-                                    value=""
-                                    className="mt-1 block w-full"
-                                    autoComplete="durasi"
-                                />
-
-                                <InputError message="" className="mt-2" />
-                            </div>
-                            <div className="flex mt-2 flex-column">
-                                <CFormLabel
-                                    htmlFor="basic-url"
-                                    className="text-sm font-medium"
-                                >
-                                    Guncangan
-                                </CFormLabel>
-                                <div className="flex-auto text-center">
-                                    <CFormCheck
-                                        inline
-                                        type="radio"
-                                        name="inlineRadioOptions"
-                                        id="inlineCheckbox1"
-                                        value="option1"
-                                        label="1"
+                            <div className="w-2/3 mx-auto mt-4 flex flex-row justify-between gap-4">
+                                <div className="w-1/2">
+                                    <label className="label">
+                                        <span className="label-text font-semibold text-black">
+                                            Tanggal
+                                        </span>
+                                    </label>
+                                    <input
+                                        type="date"
+                                        placeholder="Type here"
+                                        className="input input-bordered bg-white border-gray-500 w-full text-gray-400"
+                                        onChange={handleChange}
                                     />
-                                    <CFormCheck
-                                        inline
-                                        type="radio"
-                                        name="inlineRadioOptions"
-                                        id="inlineCheckbox2"
-                                        value="option2"
-                                        label="2"
-                                    />
-                                    <CFormCheck
-                                        inline
-                                        type="radio"
-                                        name="inlineRadioOptions"
-                                        id="inlineCheckbox3"
-                                        value="option3"
-                                        label="3"
-                                    />
-                                    <CFormCheck
-                                        inline
-                                        type="radio"
-                                        name="inlineRadioOptions"
-                                        id="inlineCheckbox4"
-                                        value="option4"
-                                        label="4"
-                                    />
-                                    <CFormCheck
-                                        inline
-                                        type="radio"
-                                        name="inlineRadioOptions"
-                                        id="inlineCheckbox5"
-                                        value="option5"
-                                        label="5"
+                                </div>
+                                <div className="w-1/2">
+                                    <label className="label">
+                                        <span className="label-text font-semibold text-black">
+                                            Waktu
+                                        </span>
+                                    </label>
+                                    <input
+                                        type="time"
+                                        placeholder="Type here"
+                                        className="input input-bordered bg-white border-gray-500 w-full text-gray-400"
+                                        onChange={handleChange}
                                     />
                                 </div>
                             </div>
-                            <div className="flex mt-2 flex-column">
-                                <CFormLabel
-                                    htmlFor="basic-url"
-                                    className="text-sm font-medium block"
+                            <div className="w-2/3 mx-auto mt-4">
+                                <label className="label">
+                                    <span className="label-text font-semibold text-black">
+                                        Kerusakan
+                                    </span>
+                                </label>
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="100"
+                                    defaultValue="50"
+                                    className="range"
+                                    step="25"
+                                    onChange={handleChange}
+                                />
+                                <div className="w-full flex justify-between text-xs px-2">
+                                    <span>Tidak Ada</span>
+                                    <span>Ringan</span>
+                                    <span>Sedang</span>
+                                    <span>Banyak</span>
+                                    <span>Sangat Banyak</span>
+                                </div>
+                            </div>
+                            <div className="w-2/3 mx-auto mt-4">
+                                <label className="label">
+                                    <span className="label-text font-semibold text-black">
+                                        Korban
+                                    </span>
+                                </label>
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="100"
+                                    defaultValue="50"
+                                    className="range"
+                                    step="25"
+                                    onChange={handleChange}
+                                />
+                                <div className="w-full flex justify-between text-xs px-2">
+                                    <span>0</span>
+                                    <span>1-25</span>
+                                    <span>26-50</span>
+                                    <span>51-75</span>
+                                    <span>76&gt;</span>
+                                </div>
+                            </div>
+                            <div className="w-2/3 mx-auto mt-4">
+                                <label className="label">
+                                    <span className="label-text font-semibold text-black">
+                                        Deskripsi
+                                    </span>
+                                </label>
+                                <textarea
+                                    className="textarea textarea-bordered w-full bg-white"
+                                    placeholder="Jelaskan Kejadian"
+                                ></textarea>
+                            </div>
+                            <div className="w-full flex justify-center mt-4 mb-4">
+                                <button
+                                    className="btn bg-gradient-to-r from-[#030F6B] to-[#23284F] text-white"
+                                    type="submit"
+                                    onClick={console.log(values)}
                                 >
-                                    Deskripsi
-                                </CFormLabel>
-                                <CFormTextarea
-                                    placeholder="Leave a comment here"
-                                    id="floatingTextarea2"
-                                    floatingLabel="kronologis kejadian"
-                                    style={{ height: "100px" }}
-                                ></CFormTextarea>
+                                    Submit
+                                </button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </AuthenticatedLayout>
