@@ -64,6 +64,7 @@ export default function Report(props) {
                                 </label>
                                 <input
                                     type="text"
+                                    name="nik"
                                     placeholder="Type here"
                                     className="input input-bordered bg-white border-gray-500 w-full"
                                     value={values.nik}

@@ -9,6 +9,8 @@ export default function Authenticated({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
+    const isLoggedIn = auth.user;
+
     return (
         <div className="min-h-screen bg-gray-100">
             <nav className="bg-white border-b border-gray-100">
@@ -46,6 +48,14 @@ export default function Authenticated({ auth, header, children }) {
                                 >
                                     LAPORAN
                                 </NavLink>
+                                {isLoggedIn && 
+                                    <NavLink
+                                        href={route("addPost")}
+                                        active={route().current("addPost")}
+                                    >
+                                        BUAT BERITA
+                                    </NavLink>
+                                }
                                 <NavLink>
                                     <Link
                                         method={auth.user ? "POST" : "GET"}

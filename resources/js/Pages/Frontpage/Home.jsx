@@ -17,6 +17,7 @@ export default function Home(props) {
             <div className="py-12">
                 <div className="max-w-[1440px] mx-auto sm:px-6 lg:px-8">
                     <div className="flex flex-row justify-between gap-9">
+                        {/* section berita */}
                         <div className="md:w-2/3 w-full">
                             <h2>Berita Terbaru</h2>
                             <div className="flex flex-row justify-between mt-4">
@@ -116,6 +117,8 @@ export default function Home(props) {
                                 </div>
                             </div>
                         </div>
+
+                        {/* section berita populer */}
                         <div className="md:w-1/3 w-full">
                             <h2>Berita Populer</h2>
                             <div className="flex flex-col justify-between mt-4 gap-4">
