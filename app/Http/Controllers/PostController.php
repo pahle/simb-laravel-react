@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdatePostRequest;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;    
 use Inertia\Inertia;
 
 class PostController extends Controller
@@ -17,7 +17,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+
+        return inertia::render('Frontpage/Home', [
+            'posts' => $posts
+        ]);
     }
 
     /**
@@ -43,7 +47,7 @@ class PostController extends Controller
         ]);
 
         $request = Post::create([
-            'author' => $request->author,
+            'author' => auth()->user()->name,
             'title' => $request->title,
             'excerpt' => $request->excerpt,
             'references' => $request->references,

@@ -21,7 +21,6 @@ const CreateNews = (props) => {
 
     const submit = (e) => {
         e.preventDefault();
-
         post(route('addPost'));
     };
 
@@ -47,10 +46,12 @@ const CreateNews = (props) => {
                                     type="text"
                                     name="author"
                                     className="mt-1 block w-full"
-                                    autoComplete="author"
+                                    value={props.auth.user.name}
+                                    autoComplete="false"
                                     placeholder="type here"
                                     handleChange={onHandleChange}
                                     required
+                                    disabled
                                 />
 
                                 <InputError message='' className="mt-2" />

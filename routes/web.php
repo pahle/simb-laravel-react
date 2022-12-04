@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -27,9 +28,7 @@ header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
 //     ]);
 // });
 
-Route::get('/', function () {
-    return Inertia::render('Frontpage/Home');
-})->name('home');
+Route::get('/', [PostController::class, 'index'] )->name('home');
 
 Route::get('/mitigation', function () {
     return Inertia::render('Frontpage/Mitigation');

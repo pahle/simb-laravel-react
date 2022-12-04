@@ -1,13 +1,14 @@
-import React from "react";
-
+import {React, useState, useEffect} from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import TitleSection from "@/Components/TitleSection";
-import CardBerita from "@/Components/CardBerita";
 import { Head } from "@inertiajs/inertia-react";
 import GempaTerkini from "@/Components/GempaTerkini";
 import { getGempaTerkini } from "../../API/API";
+import axios from "axios";
 
 export default function Home(props) {
+    const posts = props.posts;
+
     return (
         <AuthenticatedLayout auth={props.auth} errors={props.errors} header="">
             <Head title="Home" />
@@ -20,101 +21,30 @@ export default function Home(props) {
                         {/* section berita */}
                         <div className="md:w-2/3 w-full">
                             <h2>Berita Terbaru</h2>
-                            <div className="flex flex-row justify-between mt-4">
-                                <div className="w-[430px]">
-                                    <div className="w-full">
-                                        <img
-                                            src="https://via.placeholder.com/430x250"
-                                            alt=""
-                                            className=""
-                                        />
-                                    </div>
-                                    <div className="text-left flex flex-row justify-between mt-4">
-                                        <h5 className="text-[18px] font-semibold">
-                                            Gempa Cianjur Terjadi Lagi
-                                        </h5>
-                                        <p className="text-[16px] font-semibold ">
-                                            24 Jan 2022
+                            <div className="grid gap-8 md:grid-cols-1 xl:grid-cols-2 mt-4">
+                                {posts.map((post) => (
+                                    <div className="w-[430px]" >
+                                        <div className="w-full">
+                                            <img
+                                                src="https://via.placeholder.com/430x250"
+                                                alt=""
+                                                className=""
+                                            />
+                                        </div>
+                                        <div className="text-left flex flex-row justify-between mt-4">
+                                            <h5 className="text-[18px] font-semibold">
+                                                {post.title}
+                                            </h5>
+                                            <p className="text-[16px] font-semibold w-50 text-right">
+                                                24 Jan 2022
+                                            </p>
+                                        </div>
+                                        <p className="text-justify">
+                                            {post.excerpt}
+                                            <a href={post.references} className="no-underline"> Read More</a>
                                         </p>
                                     </div>
-                                    <p className="text-justify">
-                                        Lorem ipsum dolor sit, amet consectetur
-                                        adipisicing elit. Provident eaque hic
-                                        reiciendis inventore harum quo?
-                                        <a href="/"> Read More</a>
-                                    </p>
-                                </div>
-                                <div className="w-[430px]">
-                                    <div className="w-full">
-                                        <img
-                                            src="https://via.placeholder.com/430x250"
-                                            alt=""
-                                            className=""
-                                        />
-                                    </div>
-                                    <div className="text-left flex flex-row justify-between mt-4">
-                                        <h5 className="text-[18px] font-semibold">
-                                            Gempa Cianjur Terjadi Lagi
-                                        </h5>
-                                        <p className="text-[16px] font-semibold ">
-                                            24 Jan 2022
-                                        </p>
-                                    </div>
-                                    <p className="text-justify">
-                                        Lorem ipsum dolor sit, amet consectetur
-                                        adipisicing elit. Provident eaque hic
-                                        reiciendis inventore harum quo?
-                                        <a href="/"> Read More</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex flex-row justify-between mt-4">
-                                <div className="w-[430px]">
-                                    <div className="w-full">
-                                        <img
-                                            src="https://via.placeholder.com/430x250"
-                                            alt=""
-                                            className=""
-                                        />
-                                    </div>
-                                    <div className="text-left flex flex-row justify-between mt-4">
-                                        <h5 className="text-[18px] font-semibold">
-                                            Gempa Cianjur Terjadi Lagi
-                                        </h5>
-                                        <p className="text-[16px] font-semibold ">
-                                            24 Jan 2022
-                                        </p>
-                                    </div>
-                                    <p className="text-justify">
-                                        Lorem ipsum dolor sit, amet consectetur
-                                        adipisicing elit. Provident eaque hic
-                                        reiciendis inventore harum quo?
-                                        <a href="/"> Read More</a>
-                                    </p>
-                                </div>
-                                <div className="w-[430px]">
-                                    <div className="w-full">
-                                        <img
-                                            src="https://via.placeholder.com/430x250"
-                                            alt=""
-                                            className=""
-                                        />
-                                    </div>
-                                    <div className="text-left flex flex-row justify-between mt-4">
-                                        <h5 className="text-[18px] font-semibold">
-                                            Gempa Cianjur Terjadi Lagi
-                                        </h5>
-                                        <p className="text-[16px] font-semibold ">
-                                            24 Jan 2022
-                                        </p>
-                                    </div>
-                                    <p className="text-justify">
-                                        Lorem ipsum dolor sit, amet consectetur
-                                        adipisicing elit. Provident eaque hic
-                                        reiciendis inventore harum quo?
-                                        <a href="/"> Read More</a>
-                                    </p>
-                                </div>
+                                ))}
                             </div>
                         </div>
 
