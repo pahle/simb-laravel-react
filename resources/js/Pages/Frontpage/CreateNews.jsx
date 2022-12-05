@@ -14,7 +14,7 @@ const CreateNews = (props) => {
         references: '',
         thumbnail: ''
     });
-    
+
     const onHandleChange = (event) => {
         setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
     };
@@ -112,7 +112,7 @@ const CreateNews = (props) => {
                                         </div>
                                         <input id="dropzone-file" type="file" className="hidden" />
                                     </label>
-                                </div> 
+                                </div>
 
                                 <InputError message='' className="mt-2" />
                             </div>

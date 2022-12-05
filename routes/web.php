@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 header('Access-Control-Allow-Origin: *');
-header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
+header('Access-Control-Allow-Headers: Authorization, Content-Type');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,16 +29,14 @@ header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
 //     ]);
 // });
 
-Route::get('/', [PostController::class, 'index'] )->name('home');
+Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('/mitigation', function () {
     return Inertia::render('Frontpage/Mitigation');
 })->name('mitigation');
 
-Route::prefix('support')->group(function() {
-    Route::get('/report', function () {
-        return Inertia::render('Frontpage/Report');
-    })->name('report');
+Route::prefix('support')->group(function () {
+
     Route::get('/contact', function () {
         return Inertia::render('Frontpage/ContactUs');
     })->name('contact');
@@ -47,13 +46,13 @@ Route::get('/statistics', function () {
     return Inertia::render('Frontpage/Statistics');
 })->name('statistics');
 
-Route::prefix('mitigasi')->group(function() {
-    Route::get('/tsunami', function() {
+Route::prefix('mitigasi')->group(function () {
+    Route::get('/tsunami', function () {
         return Inertia::render('Frontpage/MitigasiTsunami');
     })->name('tsunami');
 });
 
-Route::get('/news', function() {
+Route::get('/news', function () {
     return Inertia::render('Frontpage/CreateNews');
 })->name('news');
 
@@ -66,5 +65,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/report', function () {
+    return Inertia::render('Frontpage/Report');
+})->name('report');
+
+Route::post('/report', [ReportController::class, 'store']);
 
 require __DIR__ . '/auth.php';

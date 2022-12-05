@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import TitleSection from "@/Components/TitleSection";
 import { Head } from "@inertiajs/inertia-react";
@@ -22,8 +22,8 @@ export default function Home(props) {
                         <div className="md:w-2/3 w-full">
                             <h2>Berita Terbaru</h2>
                             <div className="grid gap-8 md:grid-cols-1 xl:grid-cols-2 mt-4">
-                                {posts.map((post) => (
-                                    <div className="w-[430px]" >
+                                {posts.map((post, index) => (
+                                    <div key={index} className="w-[430px]" >
                                         <div className="w-full">
                                             <img
                                                 src="https://via.placeholder.com/430x250"

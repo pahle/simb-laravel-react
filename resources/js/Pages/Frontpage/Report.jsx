@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head } from "@inertiajs/inertia-react";
+import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import PrimaryButton from '@/Components/PrimaryButton';
 
-export default function Report(props) {
-    const [values, setValues] = useState({
+
+const Report = (props) => {
+    const { data, setData, post, processing, errors, reset } = useForm({
         nama: "",
         nik: "",
         lokasi: "",
@@ -15,18 +17,13 @@ export default function Report(props) {
         deskripsi: "",
     });
 
-    function handleChange(e) {
-        const key = e.target.id;
-        const value = e.target.value;
-        setValues((values) => ({
-            ...values,
-            [key]: value,
-        }));
+    const onHandleChange = (event) => {
+        setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
     }
 
-    function handleSubmit(e) {
+    const submit = (e) => {
         e.preventDefault();
-        Inertia.post("/report", values);
+        post("report");
     }
 
     return (
@@ -39,7 +36,7 @@ export default function Report(props) {
 
             <div className="py-12">
                 <div className="max-w-[1440px] mx-auto sm:px-6 lg:px-8">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={submit}>
                         <div className="flex flex-col justify-between form-control">
                             <div className="w-2/3 mx-auto mt-4">
                                 <label className="label">
@@ -52,8 +49,7 @@ export default function Report(props) {
                                     name="nama"
                                     placeholder="Type here"
                                     className="input input-bordered bg-white border-gray-500 w-full"
-                                    value={values.nama}
-                                    onChange={handleChange}
+                                    onChange={onHandleChange}
                                 />
                             </div>
                             <div className="w-2/3 mx-auto mt-4">
@@ -67,8 +63,7 @@ export default function Report(props) {
                                     name="nik"
                                     placeholder="Type here"
                                     className="input input-bordered bg-white border-gray-500 w-full"
-                                    value={values.nik}
-                                    onChange={handleChange}
+                                    onChange={onHandleChange}
                                 />
                             </div>
                             <div className="divider mt-12"></div>
@@ -80,9 +75,10 @@ export default function Report(props) {
                                 </label>
                                 <input
                                     type="text"
+                                    name="lokasi"
                                     placeholder="Type here"
                                     className="input input-bordered bg-white border-gray-500 w-full"
-                                    onChange={handleChange}
+                                    onChange={onHandleChange}
                                 />
                             </div>
                             <div className="w-2/3 mx-auto mt-4 flex flex-row justify-between gap-4">
@@ -94,9 +90,10 @@ export default function Report(props) {
                                     </label>
                                     <input
                                         type="date"
+                                        name="tanggal"
                                         placeholder="Type here"
                                         className="input input-bordered bg-white border-gray-500 w-full text-gray-400"
-                                        onChange={handleChange}
+                                        onChange={onHandleChange}
                                     />
                                 </div>
                                 <div className="w-1/2">
@@ -107,9 +104,10 @@ export default function Report(props) {
                                     </label>
                                     <input
                                         type="time"
+                                        name="waktu"
                                         placeholder="Type here"
                                         className="input input-bordered bg-white border-gray-500 w-full text-gray-400"
-                                        onChange={handleChange}
+                                        onChange={onHandleChange}
                                     />
                                 </div>
                             </div>
@@ -121,12 +119,13 @@ export default function Report(props) {
                                 </label>
                                 <input
                                     type="range"
+                                    name="kerusakan"
                                     min="0"
                                     max="100"
                                     defaultValue="50"
                                     className="range"
                                     step="25"
-                                    onChange={handleChange}
+                                    onChange={onHandleChange}
                                 />
                                 <div className="w-full flex justify-between text-xs px-2">
                                     <span>Tidak Ada</span>
@@ -144,12 +143,13 @@ export default function Report(props) {
                                 </label>
                                 <input
                                     type="range"
+                                    name="korban"
                                     min="0"
                                     max="100"
                                     defaultValue="50"
                                     className="range"
                                     step="25"
-                                    onChange={handleChange}
+                                    onChange={onHandleChange}
                                 />
                                 <div className="w-full flex justify-between text-xs px-2">
                                     <span>0</span>
@@ -166,18 +166,15 @@ export default function Report(props) {
                                     </span>
                                 </label>
                                 <textarea
+                                    name="deskripsi"
                                     className="textarea textarea-bordered w-full bg-white"
                                     placeholder="Jelaskan Kejadian"
                                 ></textarea>
                             </div>
                             <div className="w-full flex justify-center mt-4 mb-4">
-                                <button
-                                    className="btn bg-gradient-to-r from-[#030F6B] to-[#23284F] text-white"
-                                    type="submit"
-                                    onClick={console.log(values)}
-                                >
-                                    Submit
-                                </button>
+                                <PrimaryButton className="w-1/2 bg-gradient-to-r from-[#030F6B] to-[#23284F]" processing={processing}>
+                                    Publish
+                                </PrimaryButton>
                             </div>
                         </div>
                     </form>
@@ -186,3 +183,5 @@ export default function Report(props) {
         </AuthenticatedLayout>
     );
 }
+
+export default Report;

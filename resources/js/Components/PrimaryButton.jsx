@@ -6,8 +6,7 @@ export default function PrimaryButton({ type = 'submit', className = '', process
             type={type}
             onClick={onClick}
             className={
-                `btn inline-flex items-center px-4 py-2 bg-gray-800 text-white uppercase transition ease-in-out duration-300 ${
-                    processing && 'loading'
+                `btn inline-flex items-center px-4 py-2 bg-gray-800 text-white uppercase transition ease-in-out duration-300 ${processing && 'loading'
                 } ` + className
             }
         >
