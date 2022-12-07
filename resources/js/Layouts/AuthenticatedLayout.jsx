@@ -32,8 +32,8 @@ export default function Authenticated({ auth, header, children }) {
                                         BERANDA
                                     </NavLink>
                                     <NavLink
-                                        href={route("mitigation")}
-                                        active={route().current("mitigation")}
+                                        href={route("mitigasi")}
+                                        active={route().current("mitigasi")}
                                     >
                                         MITIGASI
                                     </NavLink>

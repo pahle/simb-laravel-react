@@ -1,12 +1,31 @@
 import { React, useState, useEffect } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import TitleSection from "@/Components/TitleSection";
-import { Head } from "@inertiajs/inertia-react";
+import InputError from '@/Components/InputError';
+import InputLabel from '@/Components/InputLabel';
+import TextInput from '@/Components/TextInput';
+import PrimaryButton from '@/Components/PrimaryButton';
+import { Head, Link, useForm } from '@inertiajs/inertia-react';
 import GempaTerkini from "@/Components/GempaTerkini";
 import { getGempaTerkini } from "../../API/API";
 import axios from "axios";
 
 export default function Home(props) {
+    const { data, setData, post, processing, errors, reset } = useForm({
+        nama: '',
+        email: '',
+        pesan: ''
+    });
+
+    const onHandleChange = (event) => {
+        setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+    };
+
+    const submit = (e) => {
+        e.preventDefault();
+        post(route('contact'));
+    };
+
     const posts = props.posts;
 
     return (
@@ -20,8 +39,8 @@ export default function Home(props) {
                     <div className="flex flex-row justify-between gap-9">
                         {/* section berita */}
                         <div className="md:w-2/3 w-full">
-                            <h2>Berita Terbaru</h2>
-                            <div className="grid gap-8 md:grid-cols-1 xl:grid-cols-2 mt-4">
+                            <h2 className="text-3xl text-black">Berita Terbaru</h2>
+                            <div className="grid gap-8 md:grid-cols-1 xl:grid-cols-2 mt-4 dark:text-black">
                                 {posts.map((post, index) => (
                                     <div key={index} className="w-[430px]" >
                                         <div className="w-full">
@@ -35,13 +54,13 @@ export default function Home(props) {
                                             <h5 className="text-[18px] font-semibold">
                                                 {post.title}
                                             </h5>
-                                            <p className="text-[16px] font-semibold w-50 text-right">
+                                            <p className="text-[16px] font-normal w-50 text-right text-gray-500">
                                                 24 Jan 2022
                                             </p>
                                         </div>
                                         <p className="text-justify">
                                             {post.excerpt}
-                                            <a href={post.references} className="no-underline"> Read More</a>
+                                            <a href={post.references} className="no-underline dark:text-blue-800"> Read More</a>
                                         </p>
                                     </div>
                                 ))}
@@ -50,12 +69,13 @@ export default function Home(props) {
 
                         {/* section berita populer */}
                         <div className="md:w-1/3 w-full">
-                            <h2>Berita Populer</h2>
-                            <div className="flex flex-col justify-between mt-4 gap-4">
+                            <h2 className="text-3xl text-black">Berita Populer</h2>
+                            <div className="flex flex-col justify-between mt-4 gap-4 text-black">
                                 <div className="flex flex-row w-full hover:bg-gray-300 ease-in-out transition-all duration-3003">
                                     <img
-                                        src="https://via.placeholder.com/100x100"
+                                        src="assets/images/030289100_1642047204-photo-1621077742331-2df96a07cca7.jpg"
                                         alt=""
+                                        width='100px'
                                     />
                                     <div className="flex flex-col gap-2 ml-4 my-auto">
                                         <h5 className="text-[16px] font-semibold">
@@ -67,8 +87,9 @@ export default function Home(props) {
                                 </div>
                                 <div className="flex flex-row w-full hover:bg-gray-300 ease-in-out transition-all duration-3003">
                                     <img
-                                        src="https://via.placeholder.com/100x100"
+                                        src="assets/images/030289100_1642047204-photo-1621077742331-2df96a07cca7.jpg"
                                         alt=""
+                                        width='100px'
                                     />
                                     <div className="flex flex-col gap-2 ml-4 my-auto">
                                         <h5 className="text-[16px] font-semibold">
@@ -80,8 +101,9 @@ export default function Home(props) {
                                 </div>
                                 <div className="flex flex-row w-full hover:bg-gray-300 ease-in-out transition-all duration-3003">
                                     <img
-                                        src="https://via.placeholder.com/100x100"
+                                        src="assets/images/030289100_1642047204-photo-1621077742331-2df96a07cca7.jpg"
                                         alt=""
+                                        width='100px'
                                     />
                                     <div className="flex flex-col gap-2 ml-4 my-auto">
                                         <h5 className="text-[16px] font-semibold">
@@ -93,8 +115,9 @@ export default function Home(props) {
                                 </div>
                                 <div className="flex flex-row w-full hover:bg-gray-300 ease-in-out transition-all duration-3003">
                                     <img
-                                        src="https://via.placeholder.com/100x100"
+                                        src="assets/images/030289100_1642047204-photo-1621077742331-2df96a07cca7.jpg"
                                         alt=""
+                                        width='100px'
                                     />
                                     <div className="flex flex-col gap-2 ml-4 my-auto">
                                         <h5 className="text-[16px] font-semibold">
@@ -107,18 +130,70 @@ export default function Home(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center mt-20">
-                        <TitleSection title="Tentang SITASU" />
-                        <p className="text-center">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Ad, modi ut a ipsa, ab neque reprehenderit
-                            deserunt, alias eos debitis omnis numquam
-                            voluptatibus harum similique sit quod quas. Eveniet
-                            minima accusantium blanditiis maxime harum odit
-                            commodi aliquid ducimus earum ea voluptatibus
-                            tempore debitis perspiciatis, incidunt nihil
-                            consequuntur dolorem amet totam!
-                        </p>
+                    <div className="text-black my-6">
+                        <TitleSection title="Hubungi Kami"/>
+                    </div>
+                    <div className="flex text-black">
+                        <div className="flex flex-col items-stretch border rounded-md p-3 hover:bg-gradient-to-tl hover:from-gray-200 hover:to-white-500 gap-6 w-2/3">
+                            <p className="font-semibold text-lg">Tentang Kami</p>
+                            <p>Pusat Informasi Gempa Bumi merupakan lembaga penanggulangan bencana yang berkedudukan di bawah dan bertanggung jawab kepada Gubernur. BPBD dipimpin oleh seorang kepala, yang dijabat secara ex officio oleh Sekretaris Daerah (Sekda), yang berkedudukan di bawah dan bertanggung jawab kepada Gubernur.</p>
+                            <p>Email : simb.pusatiinformasigempa@jogjakota.go.id</p>
+                        </div>
+                
+                        <form onSubmit={submit} className="w-full">
+                            <div className="flex flex-col w-full justify-center items-stretch p-10 pt-0 gap-4">
+                                <div className="mt-4">
+                                    <InputLabel forInput="nama" value="Nama" />
+
+                                    <TextInput
+                                        type="text"
+                                        name="nama"
+                                        className="mt-1 block w-full"
+                                        autoComplete="nama"
+                                        placeholder="type here"
+                                        handleChange={onHandleChange}
+                                        required
+                                    />
+
+                                    <InputError message='' className="mt-2" />
+                                </div>
+                                <div className="mt-4">
+                                    <InputLabel forInput="email" value="Email" />
+
+                                    <TextInput
+                                        type="email"
+                                        name="email"
+                                        className="mt-1 block w-full"
+                                        autoComplete="email"
+                                        placeholder="type here"
+                                        handleChange={onHandleChange}
+                                        required
+                                    />
+
+                                    <InputError message='' className="mt-2" />
+                                </div>
+                                <div className="mt-4">
+                                    <InputLabel forInput="pesan" value="Pesan" />
+
+                                    <TextInput
+                                        type="text"
+                                        name="pesan"
+                                        className="mt-1 block w-full"
+                                        autoComplete="pesan"
+                                        placeholder="type here"
+                                        handleChange={onHandleChange}
+                                        required
+                                    />
+
+                                    <InputError message='' className="mt-2" />
+                                </div>
+                                <div className="flex items-center justify-center mt-4">
+                                <PrimaryButton className="w-1/2 bg-gradient-to-r from-[#030F6B] to-[#23284F]" processing={processing}>
+                                    Submit
+                                </PrimaryButton>
+                            </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

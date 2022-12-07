@@ -31,22 +31,14 @@ header('Access-Control-Allow-Headers: Authorization, Content-Type');
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
-Route::get('/mitigation', function () {
-    return Inertia::render('Frontpage/Mitigation');
-})->name('mitigation');
-
-Route::prefix('support')->group(function () {
-
-    Route::get('/contact', function () {
-        return Inertia::render('Frontpage/ContactUs');
-    })->name('contact');
-});
-
 Route::get('/statistics', function () {
     return Inertia::render('Frontpage/Statistics');
 })->name('statistics');
 
 Route::prefix('mitigasi')->group(function () {
+    Route::get('/', function () {
+        return Inertia::render('Frontpage/Mitigation');
+    })->name('mitigasi');
     Route::get('/tsunami', function () {
         return Inertia::render('Frontpage/MitigasiTsunami');
     })->name('tsunami');
@@ -71,5 +63,7 @@ Route::get('/report', function () {
 })->name('report');
 
 Route::post('/report', [ReportController::class, 'store']);
+
+Route::post('/contact', [ReportController::class, 'store'])->name('contact');
 
 require __DIR__ . '/auth.php';

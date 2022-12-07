@@ -10,8 +10,10 @@ export default function MitigasiTsunami(props) {
             errors={props.errors}
             header=""
         >
-            <div className='h-[500px] absolute flex justify-center items-center z-[2] w-full '>
+            <div className='h-[500px] absolute flex justify-center items-center z-[3] w-full '>
                 <h1 className='text-5xl font-semibold text-white text-center drop-shadow-xl'>Mitigasi Tsunami</h1>
+            </div>
+            <div className='h-[500px] absolute flex justify-center items-center z-[2] w-full bg-black opacity-60'>
             </div>
 
             {/* carousel */}
@@ -36,10 +38,10 @@ export default function MitigasiTsunami(props) {
             </div>
 
             <div className='container-lg'>
-                <div className='rounded-md overflow-hidden w-[1440px] m-auto'>
-                    <img src="/assets/images/2022_09_20_09_02_44.520721_file.jpeg" alt="mitigasi bencana tsunami" />
-                </div>
                 <div className="w-full my-3">
+                    <div className='rounded-md overflow-hidden w-2/3 m-auto mb-4'>
+                        <iframe width="100%" height="400px" src="https://www.youtube.com/embed/Rh-kizm720g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                     <div className="text-left text-3xl font-semibold mb-2">
                         Pra Bencana
                     </div>
@@ -74,6 +76,9 @@ export default function MitigasiTsunami(props) {
                         <li>Jauhi pantai. Jangan pernah menuju ke pantai untuk melihat datangnya tsunami.</li>
                         <li>Cepat bergerak ke arah daratan yang lebih tinggi dan tinggal di sana sementara waktu.</li>
                     </ul>
+                    <div className='rounded-md overflow-hidden w-2/3 m-auto'>
+                        <img src="/assets/images/2022_09_20_09_02_44.520721_file.jpeg" alt="mitigasi bencana tsunami" />
+                    </div>
                 </div>
             </div>
         </AuthenticatedLayout>
